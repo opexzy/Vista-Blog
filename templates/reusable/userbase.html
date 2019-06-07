@@ -1,0 +1,43 @@
+
+{% include 'include/header.html' %}
+
+<body>
+    <section class="header">
+        <div class="topnav" id="myTopnav">
+            <a href="/" class="act">Home</a>
+            <div class="site-dropdown">
+                    <button class="site-dropbtn">Categories 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="site-dropdown-content">
+                        <a href="#">Politics</a>
+                        <a href="#">Sport</a>
+                    </div>
+            </div>
+            <div class="site-dropdown">
+                    <button class="site-dropbtn">Reporter 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="site-dropdown-content">
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'register' %}">Register</a>
+                    </div>
+            </div>
+            <a href="#" class="act">Advertise With Us</a>
+            <a href="#" class="act">Privacy Policies</a>
+            <div class="site-search">
+                <input type="text" placeholder="Search.."><button type="button" class="fa fa-search"></button>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="responsive()">&#9776;</a>
+        </div> 
+    </section>
+    <section class="content">
+        {% block content %}
+        {% endblock content %}
+    </section>
+    <section class="footer">
+       
+    </section>
+</body>
+
+{% include 'include/footer.html' %}

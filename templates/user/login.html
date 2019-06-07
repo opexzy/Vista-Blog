@@ -1,0 +1,31 @@
+
+{% extends "reusable/homebase.html" %}
+
+{% block content %}
+    <div class="title-box">
+        <h3>Registered User Login</h3>
+    </div>
+    {{ data }}
+    <div class="login-form">
+        <div class="messages">
+            {% if messages %}
+                <ul class="messages">
+                    {% for msg in messages %}
+                    <li>
+                        <div class="alert alert-{{msg.level_tag}}" role="alert">
+                            {{msg.message}}
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+                {{login_form.as_table}}
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock content %}
